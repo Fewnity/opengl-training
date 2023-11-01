@@ -34,6 +34,15 @@ private:
 
     vector<CubeObject> cubes;
     float newXPosition { 0 };
+
+    int texNoiseTexture;
+    int texNoiseTexture2;
+    int texNoiseTexture3;
+    int texNoiseTexture4;
+
+
+    float gameTime = 0;
+
 };
 
 
