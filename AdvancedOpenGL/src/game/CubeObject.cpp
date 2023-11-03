@@ -17,6 +17,11 @@ void CubeObject::draw(Shader& shader) {
   cubeMesh->draw();
 }
 
+void CubeObject::drawTesselation(Shader& shader) {
+	shader.setMatrix4("mv_matrix", transform);
+	cubeMesh->drawTesselation();
+}
+
 void CubeObject::setPosition(float xP, float yP) {
   x = xP;
   y = yP;

@@ -19,10 +19,11 @@
 #define SHADER_COMP(s) PATH3(SHADER_PATH,s,EXT_COMP)
 #define SHADER_ID(s) STR(s)
 
-#define SCENE_NAME Scene_026_Greg
-#define SHADER_NAME IDENT(026_Greg)
+#define SCENE_NAME Scene_027_GregTess
+#define SHADER_NAME IDENT(027_GregTess)
 
 /**
+ * Scene_027_GregTess
  * Scene_026_Greg
  * Scene_025_ComputeShaderBoids
  * Scene_024_ComputeShaderRaytracing
