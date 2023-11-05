@@ -12,6 +12,8 @@
 #include <cmath>
 #include "CubeMesh.h"
 
+bool isWireFrame = true;
+
 
 Scene_027_GregTess::Scene_027_GregTess()
 {
@@ -71,16 +73,20 @@ void Scene_027_GregTess::update(float dt) {
 
 void Scene_027_GregTess::draw() {
 
-	static const GLfloat bgColor[] = { 0.0f, 0.0f, 0.2f, 1.0f };
+	static const GLfloat bgColor[] = { 0.2f, 0.0f, 0.2f, 1.0f };
+
 	glClearBufferfv(GL_COLOR, 0, bgColor);
 	shader.use();
 	shader.setMatrix4("proj_matrix", projection);
 	shader.setInteger("tessLevel", 1 + (int)((0.5f + (std::sinf(gameTime) / 2.0f)) * 10));
 
-	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	if(isWireFrame)
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	else
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
 	for (auto& cube : cubes) 
 	{
 		cube.drawTesselation(shader);
 	}
-	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 }
